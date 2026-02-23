@@ -451,6 +451,9 @@ public:
             if (state != STATE_HAPPY)
                 ApplySpeedPenalty(player, data);
             UpdateFlyingState(player, data);
+
+            // Show current satisfaction state on mount
+            SendStateMessage(player, state);
         }
 
         // Slow Fall management for unhappy grounded mounts
@@ -496,12 +499,6 @@ public:
                 data.satisfaction = std::max(0, data.satisfaction - decayAmount);
                 uint8 newState = GetSatisfactionState(data.satisfaction);
                 data.lastState = newState;
-
-                ChatHandler(player->GetSession()).PSendSysMessage(
-                    "|cff888888[Debug] Satisfaction: {} (state: {}, decay: {:.1f}x)|r",
-                    data.satisfaction,
-                    newState == STATE_HAPPY ? "Happy" : newState == STATE_CONTENT ? "Content" : "Unhappy",
-                    decayMult);
 
                 if (newState != oldState)
                 {
