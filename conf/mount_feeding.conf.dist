@@ -1,0 +1,55 @@
+#
+# mod-mount-feeding configuration
+#
+# Mount satisfaction system: mounts must be fed to maintain full speed.
+# Right-click food while mounted to feed the mount instead of eating.
+# Speed penalties apply based on satisfaction state, and unhappy mounts cannot fly.
+#
+
+# Enable or disable the module
+# Default: 1
+MountFeeding.Enable = 1
+
+# Speed multiplier when mount is Content (333000 - 665999 satisfaction)
+# Default: 0.75
+MountFeeding.ContentSpeedMultiplier = 0.75
+
+# Speed multiplier when mount is Unhappy (0 - 332999 satisfaction)
+# Default: 0.50
+MountFeeding.UnhappySpeedMultiplier = 0.50
+
+# Satisfaction loss per decay tick
+# Default: 670
+MountFeeding.DecayAmount = 670
+
+# Decay tick interval in milliseconds
+# Default: 7500
+MountFeeding.DecayInterval = 7500
+
+# Only decay satisfaction while mounted
+# Default: 1
+MountFeeding.DecayOnlyWhileMounted = 1
+
+# Decay multiplier when mounted but stationary (resting)
+# Default: 0.50
+MountFeeding.DecayMultiplier.Stationary = 0.50
+
+# Decay multiplier when mounted and moving on ground
+# Default: 1.0
+MountFeeding.DecayMultiplier.Moving = 1.0
+
+# Decay multiplier when mounted and flying
+# Default: 1.5
+MountFeeding.DecayMultiplier.Flying = 1.5
+
+# Starting satisfaction for new characters (max is 999000)
+# Default: 999000
+MountFeeding.DefaultSatisfaction = 999000
+
+# Prevent flying when mount is Unhappy
+# Default: 1
+MountFeeding.UnhappyNoFly = 1
+
+# Periodic DB save interval in milliseconds
+# Default: 300000 (5 minutes)
+MountFeeding.SaveInterval = 300000
